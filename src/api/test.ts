@@ -6,3 +6,9 @@ export const getLoginInfo = () => {
     url: '/home/banner'
   })
 }
+export const getBannerList = () => {
+  return request({
+    method: 'GET',
+    url: '/getBannerList'
+  })
+}
