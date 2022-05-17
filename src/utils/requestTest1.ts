@@ -2,8 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios'
 
 const request = axios.create({
   // baseURL: 'http://localhost:8000'
-  // baseURL: 'http://127.0.0.1:7001'
-  baseURL: import.meta.env.VITE_API_BASEURL
+  baseURL: 'http://127.0.0.1:7001'
 })
 // 添加请求拦截器
 request.interceptors.request.use(function (config) {
@@ -24,7 +23,9 @@ request.interceptors.response.use(function (response) {
   // 对响应错误做点什么
   return Promise.reject(error)
 })
-
+// request 不支持泛型
+// request.get post put 支持泛型
+// 由于后台又进行封装 导致我们访问数据麻烦， 所以进行封装
 export default <T = any>(config: AxiosRequestConfig<any>) => {
   return request(config).then(res => {
     // return res.data.data as T

@@ -1,10 +1,10 @@
-import axios, { AxiosRequestConfig } from 'axios'
+import axios from 'axios'
 
 const request = axios.create({
   // baseURL: 'http://localhost:8000'
-  // baseURL: 'http://127.0.0.1:7001'
-  baseURL: import.meta.env.VITE_API_BASEURL
+  baseURL: 'http://127.0.0.1:7001'
 })
+
 // 添加请求拦截器
 request.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
@@ -25,9 +25,4 @@ request.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-export default <T = any>(config: AxiosRequestConfig<any>) => {
-  return request(config).then(res => {
-    // return res.data.data as T
-    return res.data as T
-  })
-}
+export default request

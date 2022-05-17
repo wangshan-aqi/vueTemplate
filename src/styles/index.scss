@@ -2,3 +2,7 @@
 @import './variables.scss';
 @import './transition.scss';
 @import './mixin.scss';
+.dark {
+    background-color: black;
+    color: white;
+  }

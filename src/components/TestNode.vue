@@ -3,20 +3,24 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 // import { getLoginInfo } from '@/api/test'
 import { getBannerList } from '@/api/test'
+import type { IBannerList, IBanner } from '@/api/types/test'
 import { onMounted, ref } from 'vue'
 onMounted(() => {
   getLoginInfoFun()
 })
-const list = ref<Array<any>>([])
+const list = ref<IBanner[]>([])
 function getLoginInfoFun () {
   // getLoginInfo().then(res => {
   //   list.value = res.data
   //   console.log(list.value)
   // })
-  getBannerList().then(res => {
-    list.value = res.data.data
+  getBannerList().then((res: IBannerList) => {
+    list.value = res.data
     console.log(list.value)
   })
+  // userRegister().then(res => {
+  //   console.log(res.data);
+  // })
 }
 </script>
 
@@ -35,7 +39,7 @@ function getLoginInfoFun () {
     </div>
   </div>
 </template>
-<styles lang="scss" scoped>
+<style lang="scss" scoped>
 .wrap {
   width: 100%;
   display: grid;
@@ -49,4 +53,4 @@ function getLoginInfoFun () {
     }
   }
 }
-</styles>
+</style>
