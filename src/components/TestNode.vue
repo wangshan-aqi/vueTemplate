@@ -5,6 +5,7 @@
 import { getBannerList } from '@/api/test'
 import type { IBannerList, IBanner } from '@/api/types/test'
 import { onMounted, ref } from 'vue'
+import { useDark, useToggle } from '@vueuse/core'
 onMounted(() => {
   getLoginInfoFun()
 })
@@ -22,6 +23,14 @@ function getLoginInfoFun () {
   //   console.log(res.data);
   // })
 }
+const isDark = useDark({
+  selector: 'body',
+  // attribute: 'color-scheme',
+  valueDark: 'dark',
+  valueLight: 'light'
+})
+const toggleDark = useToggle(isDark)
+// let el = null
 </script>
 
 <template>
@@ -38,6 +47,12 @@ function getLoginInfoFun () {
       >
     </div>
   </div>
+  <el-button
+    @click="toggleDark()"
+    type="warning"
+  >
+    {{ 'name' }}
+  </el-button>
 </template>
 <style lang="scss" scoped>
 .wrap {

@@ -2,8 +2,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons' // svg 使用
 import path from 'path'
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -13,6 +13,12 @@ export default defineConfig({
     }),
     vueJsx({
       // 配置选项
+    }),
+    createSvgIconsPlugin({
+      // 指定需要缓存的图标文件夹
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons/iconfont')],
+      // 指定symbolId格式
+      symbolId: 'icon-[dir]-[name]'
     })
   ],
   resolve: {
@@ -23,6 +29,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
+        // additionalData: '@use "@/styles/element/index.scss" as *;'
         additionalData: '@use "@/styles/element/index.scss" as *;'
       }
     }
