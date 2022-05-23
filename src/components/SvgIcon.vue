@@ -3,12 +3,13 @@
     :width="width"
     :height="height"
     class="svgs"
-    aria-hidden="true"
+    aria-hidden="false"
   >
     <use
       :x="x"
       :y="y"
       :href="symbolId"
+      rel="external nofollow"
       :fill="color"
     />
   </svg>
@@ -34,7 +35,7 @@ export default defineComponent({
     },
     width: {
       type: String,
-      default: '1rem'
+      default: '0.8rem'
     },
     height: {
       type: String,
@@ -46,7 +47,7 @@ export default defineComponent({
     },
     y: {
       type: Number,
-      default: -2
+      default: 0
     }
   },
   setup (props) {

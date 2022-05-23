@@ -12,7 +12,7 @@
 
 <script lang='ts' setup>
 // import { ref, reactive, toRefs, onBeforeMount, onMounted, watchEffect, computed } from 'vue'
-import AppMenu from '@/components/AppMenu.vue'
+import AppMenu from '@/components/AppMenu/index.vue'
 import AppHeader from '@/components/AppHeader/index.vue'
 
 </script>

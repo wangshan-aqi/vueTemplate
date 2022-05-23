@@ -1,5 +1,8 @@
 <template>
-  <div @click="handlerCool">
+  <div
+    class="icon-class"
+    @click="handlerCool"
+  >
     <el-icon><Fold /></el-icon>
     <!-- <svg-icon
       name="dingdan"
@@ -22,4 +25,9 @@ function handlerCool () {
 </script>
 
 <style scoped lang='scss'>
+.icon-class {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
 </style>

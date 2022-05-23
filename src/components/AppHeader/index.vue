@@ -1,11 +1,19 @@
 <template>
   <div class="header-wrap">
-    <ToggleSidebar />
+    <div class="header-left">
+      <ToggleSidebar />
+      <Breadcrumb />
+    </div>
+    <div>
+      <FullScreen />
+    </div>
   </div>
 </template>
 
 <script lang='ts' setup>
 import ToggleSidebar from './ToggleSidebar.vue'
+import Breadcrumb from './Breadcrumb.vue'
+import FullScreen from './FullScreen.vue'
 </script>
 
 <style scoped lang='scss'>
@@ -13,5 +21,11 @@ import ToggleSidebar from './ToggleSidebar.vue'
   height: inherit;
   display: flex;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-left {
+  display: flex;
 }
 </style>

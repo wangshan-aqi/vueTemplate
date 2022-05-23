@@ -21,6 +21,8 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
+    // 关闭驼峰命名规则
+    'vue/multi-word-component-names': 0
   },
   globals: {
     defineProps: 'readonly',
@@ -31,9 +33,14 @@ module.exports = {
   overrides: [
     // 这里是添加的代码
     {
-      files: ['src/views/index.vue', 'src/views/**/index.vue', 'src/components/**/index.vue'], // 匹配views和二级目录中的index.vue
+      files: [
+        'src/views/index.vue',
+        'src/views/**/*.vue',
+        'src/components/**/*.vue',
+        'src/components/AppHeader/**/*.vue'
+      ], // 匹配views和二级目录中的index.vue
       rules: {
-        'vue/multi-word-component-names': 'off'
+        camelcase: 'off'
       } // 给上面匹配的文件指定规则
     }
   ]
